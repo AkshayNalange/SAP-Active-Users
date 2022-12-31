@@ -1,0 +1,9 @@
+DATA: lt_susers TYPE TABLE OF suser.
+
+CALL FUNCTION 'TH_USER_LIST'
+  IMPORTING
+    et_susers = lt_susers.
+
+LOOP AT lt_susers INTO DATA(ls_suser).
+  WRITE: / ls_suser-bname, ls_suser-tel1_num.
+ENDLOOP.
